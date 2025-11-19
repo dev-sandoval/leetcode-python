@@ -38,7 +38,7 @@ Los ejercicios se irán agregando progresivamente. Cada carpeta contiene:
 
 ## 🛠️ Tecnologías
 
-- **Lenguaje:** Python 3.x
+- **Lenguaje:** Python 3.13
 - **Plataforma:** LeetCode
 
 ## 📝 Notas
