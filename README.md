@@ -64,7 +64,7 @@ Si estás buscando talento que combine el dominio técnico de backend, frontend 
 
 ### 🌟 ¿Te resultó útil? ¡Dale una estrella! ⭐
 
-**¡Mucho éxito en tu aprendizaje de MySQL!** 🚀
+**¡Mucho éxito en tu aprendizaje!** 🚀
 
 ---
 
