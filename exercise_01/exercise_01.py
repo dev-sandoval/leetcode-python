@@ -13,7 +13,8 @@ class Solution(object):
                 return [seen[complement], index]
             seen[num] = index
 
-nums = [2,7,11,15]
+
+nums = [2, 7, 11, 15]
 target = 9
 s = Solution()
 
