@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Visualización: Longest Substring Without Repeating Characters</title>
+		<link
+			rel="stylesheet"
+			href="styles.css" />
+	</head>
+	<body>
+		<h1>Ventana Deslizante</h1>
+		<div class="subtitle">Longest Substring Without Repeating Characters</div>
+
+		<div class="main-container">
+			<!-- Sección Visual -->
+			<div class="viz-section">
+				<div
+					class="string-container"
+					id="string-container">
+					<!-- La ventana deslizante se insertará aquí via JS -->
+					<div
+						class="sliding-window"
+						id="window"></div>
+					<!-- Las celdas se generarán aquí -->
+					<div class="pointer-container">
+						<div
+							class="pointer pointer-l"
+							id="pointer-l">
+							<span>L</span><small>Left</small>
+							<span>⬆</span>
+						</div>
+						<div
+							class="pointer pointer-r"
+							id="pointer-r">
+							<span>R</span><small>Right</small>
+							<span>⬆</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="controls">
+					<button
+						id="btn-reset"
+						onclick="resetViz()">
+						Resetear
+					</button>
+					<button
+						id="btn-next"
+						onclick="nextStep()">
+						Siguiente Paso ▶
+					</button>
+				</div>
+
+				<div
+					class="log-box"
+					id="log-box">
+					Presiona "Siguiente Paso" para comenzar el algoritmo.
+				</div>
+			</div>
+
+			<!-- Dashboard -->
+			<div class="dashboard-section">
+				<div class="stats">
+					<div class="stat-box">
+						<div
+							class="stat-value"
+							id="val-left">
+							0
+						</div>
+						<div class="stat-label">Left</div>
+					</div>
+					<div class="stat-box">
+						<div
+							class="stat-value"
+							id="val-right">
+							-1
+						</div>
+						<div class="stat-label">Right</div>
+					</div>
+					<div class="stat-box">
+						<div
+							class="stat-value"
+							id="val-max">
+							0
+						</div>
+						<div class="stat-label">Max Len</div>
+					</div>
+				</div>
+
+				<div class="hash-map-container">
+					<div class="hash-map-title">HashMap (Char -> Last Index)</div>
+					<table class="hash-table">
+						<thead>
+							<tr>
+								<th>Char</th>
+								<th>Index</th>
+							</tr>
+						</thead>
+						<tbody id="map-body">
+							<!-- Filas dinámicas -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>

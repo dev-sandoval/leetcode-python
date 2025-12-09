@@ -1,0 +1,301 @@
+:root {
+	--bg-color: #1e1e2e;
+	--card-bg: #2b2b40;
+	--text-color: #cdd6f4;
+	--accent-green: #a6e3a1;
+	--accent-red: #f38ba8;
+	--accent-blue: #89b4fa;
+	--accent-yellow: #f9e2af;
+	--window-color: rgba(137, 180, 250, 0.2);
+	--border-color: #45475a;
+	--cell-size: 60px;
+}
+
+body {
+	font-family: 'Courier New', Courier, monospace;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+	padding: 20px;
+}
+
+h1 {
+	color: var(--accent-blue);
+	text-shadow: 0 0 10px rgba(137, 180, 250, 0.5);
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.subtitle {
+	color: #a6adc8;
+	margin-bottom: 30px;
+	font-size: 0.9rem;
+}
+
+/* Contenedor Principal */
+.main-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+	justify-content: center;
+	width: 100%;
+	max-width: 1200px;
+}
+
+/* Sección de la Cadena (String Visualization) */
+.viz-section {
+	flex: 2;
+	min-width: 350px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.string-container {
+	position: relative;
+	display: flex;
+	margin-top: 50px;
+	margin-bottom: 60px;
+}
+
+.cell {
+	width: var(--cell-size);
+	height: var(--cell-size);
+	border: 2px solid var(--border-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	position: relative;
+	z-index: 2;
+	background-color: var(--bg-color);
+	transition: border-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.cell .index-label {
+	position: absolute;
+	top: -25px;
+	font-size: 0.8rem;
+	color: #6c7086;
+}
+
+.cell.active {
+	border-color: var(--accent-blue);
+	box-shadow: 0 0 15px var(--accent-blue);
+}
+
+.cell.error {
+	border-color: var(--accent-red);
+	color: var(--accent-red);
+	box-shadow: 0 0 15px var(--accent-red);
+	animation: shake 0.5s;
+}
+
+.cell.valid {
+	border-color: var(--accent-green);
+	color: var(--accent-green);
+}
+
+/* Ventana Deslizante */
+.sliding-window {
+	position: absolute;
+	top: -5px;
+	left: 0;
+	height: calc(var(--cell-size) + 10px);
+	background-color: var(--window-color);
+	border: 2px solid var(--accent-blue);
+	border-radius: 8px;
+	z-index: 1;
+	transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+	box-shadow: 0 0 20px rgba(137, 180, 250, 0.1);
+}
+
+/* Punteros */
+.pointer-container {
+	position: absolute;
+	bottom: -40px;
+	left: 0;
+	width: 100%;
+	height: 30px;
+}
+
+.pointer {
+	position: absolute;
+	width: var(--cell-size);
+	text-align: center;
+	font-weight: bold;
+	transition: left 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.pointer-l {
+	color: var(--accent-yellow);
+}
+
+.pointer-r {
+	color: var(--accent-blue);
+}
+
+.pointer span {
+	font-size: 1.2rem;
+}
+
+.pointer small {
+	font-size: 0.8rem;
+	margin-top: -5px;
+}
+
+/* Dashboard & Mapa */
+.dashboard-section {
+	flex: 1;
+	min-width: 300px;
+	background-color: var(--card-bg);
+	border-radius: 15px;
+	padding: 20px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	border: 1px solid var(--border-color);
+}
+
+.stats {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: 15px;
+}
+
+.stat-box {
+	text-align: center;
+}
+
+.stat-value {
+	font-size: 1.5rem;
+	color: var(--accent-green);
+}
+
+.stat-label {
+	font-size: 0.8rem;
+	color: #a6adc8;
+}
+
+.hash-map-container {
+	margin-top: 10px;
+}
+
+.hash-map-title {
+	font-size: 1rem;
+	margin-bottom: 10px;
+	color: var(--accent-blue);
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: 5px;
+}
+
+.hash-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.9rem;
+}
+
+.hash-table th,
+.hash-table td {
+	text-align: left;
+	padding: 8px;
+	border-bottom: 1px solid #45475a;
+}
+
+.hash-table th {
+	color: #a6adc8;
+}
+
+.hash-table tr.highlight {
+	background-color: rgba(166, 227, 161, 0.1);
+	color: var(--accent-green);
+}
+
+.hash-table tr.update-highlight {
+	animation: highlightRow 1s;
+}
+
+/* Controles y Log */
+.controls {
+	margin-top: 30px;
+	display: flex;
+	gap: 15px;
+}
+
+button {
+	padding: 12px 24px;
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: bold;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: transform 0.1s, opacity 0.2s;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+#btn-next {
+	background-color: var(--accent-blue);
+	color: var(--bg-color);
+}
+
+#btn-reset {
+	background-color: var(--card-bg);
+	color: var(--accent-red);
+	border: 1px solid var(--accent-red);
+}
+
+button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.log-box {
+	margin-top: 20px;
+	padding: 15px;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	min-height: 60px;
+	font-size: 0.9rem;
+	border-left: 4px solid var(--accent-blue);
+	transition: border-color 0.3s;
+}
+
+/* Animaciones */
+@keyframes shake {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(-5px);
+	}
+	50% {
+		transform: translateX(5px);
+	}
+	75% {
+		transform: translateX(-5px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes highlightRow {
+	0% {
+		background-color: rgba(166, 227, 161, 0.4);
+	}
+	100% {
+		background-color: transparent;
+	}
+}
